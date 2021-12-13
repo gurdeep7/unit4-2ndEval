@@ -18,7 +18,7 @@ router.post("/",authenticate,async(req,res)=>{
 })
 router.get("/",authenticate,async(req,res)=>{
     try{
-        const Screens =await screens.find().lean().exec()
+        const Screens =await screens.find().populate("theatre").lean().exec()
 
         res.status(201).send(Screens)
        }

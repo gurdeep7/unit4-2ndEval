@@ -18,7 +18,7 @@ router.post("/",authenticate,async(req,res)=>{
 })
 router.get("/",authenticate,async(req,res)=>{
     try{
-        const Seat =await seat.find().lean().exec()
+        const Seat =await seat.find().populate("show").lean().exec()
 
         res.status(201).send(Seat)
        }
